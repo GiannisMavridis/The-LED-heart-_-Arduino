@@ -12,7 +12,8 @@
 (check the img_schematic)
 
 The led dot matrix has 16 pins , 8 pins for each row and 8 pins for each column.
-We connect the row pins with the Arduino's D0-D7 digital pins (we connect each row pin through a resistor to an Arduino's digital pin). 
+We connect the row pins with the Arduino's D0-D7 digital pins (we connect each row pin through a resistor 
+to an Arduino's digital pin). 
 We connect the column pins as following:
   the first column->digital pin 8
   the second column->digital pin 9
@@ -21,12 +22,14 @@ We connect the column pins as following:
   the eighth column->analog pin A5
 
 
-It is really important to understand that each led in the matrix has 2 pins ,one connected to a row pin and the other one connected to a column pin.
+It is really important to understand that each led in the matrix has 2 pins ,one connected to a row pin and 
+the other one connected to a column pin.
 In my led dot matrix,the anode of each one led is connected to a row pin
 and the cathode to a column pin.For example, the led that is placed on the [i,j] position of the matrix is connected as follows:
 its anode is connected to the i row pin and its cathode to the j column pin.
 
-The above about the leds'connection is not always the case.You must check the datasheet of your dot matrix to find out the connection. 
+The above about the leds'connection is not always the case.You must check the datasheet of your dot matrix to find out
+the connection. 
 It is really important to find out 
 1)which physical pin of the matrix corresponds to which column or row pin !!!!
 2)if the anode or the cathode of each led is connected to a row or column pin !!!
