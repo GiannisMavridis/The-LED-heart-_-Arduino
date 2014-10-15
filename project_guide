@@ -1,0 +1,58 @@
+//List with items needed for the project
+
+-an Arduino board (I used an Uno R3)
+-one breadboard
+-one 8x8 led dot matrix
+-8 220Ω resistors
+-jumper wires
+
+
+//Build the circuit
+
+(check the img_schematic)
+
+The led dot matrix has 16 pins , 8 pins for each row and 8 pins for each column.
+We connect the row pins with the Arduino's D0-D7 digital pins (we connect each row pin through a resistor to an Arduino's digital pin). 
+We connect the column pins as following:
+  the first column->digital pin 8
+  the second column->digital pin 9
+  the third column->analog pin A0 (we use it as a digital pin here)
+  .... 
+  the eighth column->analog pin A5
+
+
+It is really important to understand that each led in the matrix has 2 pins ,one connected to a row pin and the other one connected to a column pin.
+In my led dot matrix,the anode of each one led is connected to a row pin
+and the cathode to a column pin.For example, the led that is placed on the [i,j] position of the matrix is connected as follows:
+its anode is connected to the i row pin and its cathode to the j column pin.
+
+The above about the leds'connection is not always the case.You must check the datasheet of your dot matrix to find out the connection. 
+It is really important to find out 
+1)which physical pin of the matrix corresponds to which column or row pin !!!!
+2)if the anode or the cathode of each led is connected to a row or column pin !!!
+
+
+//the critical point of the project..HOW CAN WE CREATE THE IMAGE 0N THE MATRIX?
+
+We take advantage of the fact that "Arduino is much faster than the human eye"  
+
+At each moment,we turn on ONLY one row .(there are comments in the arduino sketch that explain all this procedure)
+For this particular row, we turn on ONLY the leds/dots that are part of the heart image.
+Then,We turn off ALL the leds and we move to the row below ,for which we do exactly the same things.
+When we reach the last row we do exactly the same things and then we move to the first row and we repeat the
+same procedure.
+
+If this loop takes place with a f>100 Ηz(arduino uno's clock frequency is equal to 16Mhz..so no problem with that),
+then the human eye will see a static image , which is composed of the leds that we turn on at each row.
+ 
+
+ 
+
+
+ 
+
+
+
+
+
+ 
